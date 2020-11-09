@@ -6,28 +6,29 @@ function Player:new(x,y)
 end
 
 function Player:uptade(dt)
-  
+  Player.super.update(self,dt)  
 end
 
 function Player:draw()
-  
+  xx = self.position.x
+  ox = self.origin.x
+  yy = self.position.y
+  oy = self.origin.y
+  sx = self.sx
+  sx = direction
+  rr = self.rot
 end
 
 function Player:keyPressed(key)
   if key == "up" then
     
-  end
-  
-  if key == "down" then
+  elseif key == "down" then
     
-    
-  end
-  
-  if key == "left" then
+  elseif key == "left" then
       
-  end
-  
-  if key == "right" then
+  elseif key == "right" then
       
   end
 end
+
+return Player
