@@ -14,8 +14,8 @@ function love.update(dt)
   for _,v in ipairs(actorList) do
     v:update(dt)
   end
-  backgroundImage1Y = backgroundImage1Y + 1 * dt
-  backgroundImage2Y = backgroundImage2Y + 1 * dt
+  backgroundImage1Y = backgroundImage1Y - 3 * dt
+  backgroundImage2Y = backgroundImage2Y - 3 * dt
 end
 
 function love.draw()
