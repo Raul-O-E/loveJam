@@ -1,6 +1,7 @@
 actorList = {}  --Lista de elementos de juego
 local Player = Player or require "Scripts/player"
 local Box = Box or require "Scripts/box"
+local Wave = Wave or require "Scripts/wave"
 math.randomseed(os.time())
 
 function love.load()
@@ -9,6 +10,8 @@ function love.load()
   backgroundImage2 = love.graphics.newImage("Textures/background.png")
   backgroundImage1Y = 0
   backgroundImage2Y = 1275
+  local w = Wave()
+  table.insert(actorList,w)
 end
 
 function love.update(dt)
