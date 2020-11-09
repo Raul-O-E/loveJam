@@ -15,7 +15,7 @@ function Player:draw()
   yy = self.position.y
   oy = self.origin.y
   sx = self.sx
-  sx = direction
+  sy = self.sy
   rr = self.rot
 end
 
