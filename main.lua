@@ -17,17 +17,17 @@ function love.load()
   backgroundImage1Y = 0
   backgroundImage2Y = 1275
 
-<<<<<<< HEAD
+
   local b = Box()
   table.insert(actorList,b)
 
 
   local w = Wave()
   table.insert(actorList,w)
-=======
+
   local c = Car()
   table.insert(actorList,c)
->>>>>>> main
+
 
   local p = Player()  
   table.insert(actorList,p)
@@ -36,9 +36,9 @@ function love.load()
 end
 
 function love.update(dt)
-<<<<<<< HEAD
 
-=======
+
+
   timerSpawn = timerSpawn + dt
   if timerSpawn >= SPAWN_RATE then
     timerSpawn = 0
@@ -54,7 +54,7 @@ function love.update(dt)
     table.insert(actorList,x)
   end
   
->>>>>>> main
+
   for _,v in ipairs(actorList) do
     v:update(dt)
   end

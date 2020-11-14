@@ -4,10 +4,9 @@ local Player = Actor:extend()
 
 local positionX=360
 local positionY=200
-local motoScale=0.3
+local motoScale=1
 local playerSpeed=170
-local motoAnguloCorrecto=45.55
-
+local motoAnguloCorrecto=0
 function Player:new(x,y)
   Player.super.new(self,"Textures/moto.png",positionX,positionY,50,0,0)
 end
