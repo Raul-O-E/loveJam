@@ -5,8 +5,9 @@ function Box:new(x,y)
   Box.super.new(self,"Textures/box.png",400,700,-100,0,1) 
 end 
  
-function Box:uptade(dt) 
-  Box.super.update(self,dt)   
+function Box:update(dt) 
+  self.position.y=self.position.y-100*dt
+  Box.super.update(self,dt) 
 end 
  
 function Box:draw() 
