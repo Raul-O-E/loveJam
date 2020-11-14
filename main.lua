@@ -78,6 +78,16 @@ function love.draw()
       v:draw()
     end
   end
+  for _,v in ipairs(actorList) do
+    if v:is(Hud) then
+      v:draw()
+    end
+  end
+  for _,v in ipairs(actorList) do
+    if v:is(Player) then
+      v:draw()
+    end
+  end
 
 end
 function love.keypressed(key)
