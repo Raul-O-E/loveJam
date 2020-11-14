@@ -1,8 +1,14 @@
 actorList = {}  --Lista de elementos de juego
 local Player = Player or require "Scripts/player"
+local Data = Data or require "data"
 local Box = Box or require "Scripts/box"
 local Wave = Wave or require "Scripts/wave"
+local Hud = Hud or require "Scripts/Hud"
+local Basura = Basura or require "Scripts/basura"
+local Car = Car or require "Scripts/car"
 math.randomseed(os.time())
+
+timerSpawn = 0
 
 function love.load()
 
@@ -11,19 +17,44 @@ function love.load()
   backgroundImage1Y = 0
   backgroundImage2Y = 1275
 
+<<<<<<< HEAD
   local b = Box()
   table.insert(actorList,b)
 
 
   local w = Wave()
   table.insert(actorList,w)
+=======
+  local c = Car()
+  table.insert(actorList,c)
+>>>>>>> main
 
   local p = Player()  
   table.insert(actorList,p)
+  local h = Hud() 
+  table.insert(actorList,h)
 end
 
 function love.update(dt)
+<<<<<<< HEAD
 
+=======
+  timerSpawn = timerSpawn + dt
+  if timerSpawn >= SPAWN_RATE then
+    timerSpawn = 0
+    obstacleRnd = math.random(3)
+    if obstacleRnd == 1 then
+      x = Box:extend()
+    elseif obstacleRnd == 2 then
+      x = Basura:extend()
+    elseif obstacleRnd == 3 then
+      x = Basura:extend()
+    end
+    x:new()
+    table.insert(actorList,x)
+  end
+  
+>>>>>>> main
   for _,v in ipairs(actorList) do
     v:update(dt)
   end

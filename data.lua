@@ -1,0 +1,1 @@
+SPAWN_RATE = 2.5
