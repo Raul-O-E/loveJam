@@ -18,8 +18,5 @@ function Wave:draw()
   sy = self.scale.y
   rr = self.rot
   love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
-end
-
-
-
+  end
 return Wave
