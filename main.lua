@@ -4,6 +4,7 @@ local Data = Data or require "data"
 local Box = Box or require "Scripts/box"
 local Wave = Wave or require "Scripts/wave"
 local Basura = Basura or require "Scripts/basura"
+local Car = Car or require "Scripts/car"
 math.randomseed(os.time())
 
 timerSpawn = 0
@@ -14,6 +15,11 @@ function love.load()
   backgroundImage2 = love.graphics.newImage("Textures/background.png")
   backgroundImage1Y = 0
   backgroundImage2Y = 1275
+<<<<<<< Updated upstream
+=======
+  local c = Car()
+  table.insert(actorList,c)
+>>>>>>> Stashed changes
   local p = Player()  
   table.insert(actorList,p)
 end
