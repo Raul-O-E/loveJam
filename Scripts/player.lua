@@ -12,7 +12,6 @@ function Player:new(x,y)
 end
 
 function Player:update(dt)
-  print(self.width)
   Player.super.update(self,dt)  
   if love.keyboard.isDown("down")then  
     
