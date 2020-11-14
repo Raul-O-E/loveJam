@@ -5,7 +5,7 @@ local positionY=200
 local motoScale=0.3
 local motoAnguloCorrecto=45.55
 function Player:new(x,y)
-  Player.super.new(self,"Textures/moto.png",positionX,positionY,50,1,0)
+  Player.super.new(self,"Textures/moto.png",positionX,positionY,50,0,0)
 end
 
 function Player:update(dt)

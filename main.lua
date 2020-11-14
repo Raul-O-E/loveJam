@@ -5,18 +5,25 @@ local Wave = Wave or require "Scripts/wave"
 math.randomseed(os.time())
 
 function love.load()
-  actorList = {}
+
   backgroundImage = love.graphics.newImage("Textures/background.png")
   backgroundImage2 = love.graphics.newImage("Textures/background.png")
   backgroundImage1Y = 0
   backgroundImage2Y = 1275
+
   local b = Box()
   table.insert(actorList,b)
+
+
+  local w = Wave()
+  table.insert(actorList,w)
+
   local p = Player()  
   table.insert(actorList,p)
 end
 
 function love.update(dt)
+
   for _,v in ipairs(actorList) do
     v:update(dt)
   end
@@ -38,9 +45,10 @@ function love.draw()
   for _,v in ipairs(actorList) do
     v:draw()
   end
+
+
 end
 function love.keypressed(key)
   
   
 end
-    
