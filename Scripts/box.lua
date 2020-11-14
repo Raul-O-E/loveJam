@@ -17,8 +17,8 @@ function Box:draw()
   ox = self.origin.x 
   yy = self.position.y 
   oy = self.origin.y 
-  sx = 0.5 
-  sy = 0.5 
+  sx = 1
+  sy = 1 
   rr = self.rot 
   love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0) 
 end 
