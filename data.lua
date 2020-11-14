@@ -1,1 +1,4 @@
 SPAWN_RATE = 2.5
+
+MIN_X = 200
+MAX_X = 520

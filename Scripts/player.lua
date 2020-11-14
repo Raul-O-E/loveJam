@@ -22,12 +22,12 @@ function Player:update(dt)
       positionY=positionY - playerSpeed * dt
   end
   if love.keyboard.isDown("left")then  
-    if positionX > 200 then  
+    if positionX > MIN_X then  
       positionX=positionX - playerSpeed * dt
     end
   end
   if love.keyboard.isDown("right")then  
-    if positionX < 520 then  
+    if positionX < MAX_X then  
       positionX=positionX + playerSpeed * dt
     end
   end
