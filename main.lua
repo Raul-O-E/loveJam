@@ -87,6 +87,10 @@ function love.draw()
       v:draw()
     end
   end
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 end
 function love.keypressed(key)
   
