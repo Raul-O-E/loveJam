@@ -36,9 +36,6 @@ function love.load()
 end
 
 function love.update(dt)
-
-
-
   timerSpawn = timerSpawn + dt
   if timerSpawn >= SPAWN_RATE then
     timerSpawn = 0
@@ -76,7 +73,11 @@ function love.draw()
   for _,v in ipairs(actorList) do
     v:draw()
   end
-
+  for _,v in ipairs(actorList) do
+    if v:is(Wave) then
+      v:draw()
+    end
+  end
 
 end
 function love.keypressed(key)

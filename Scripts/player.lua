@@ -12,6 +12,7 @@ function Player:new(x,y)
 end
 
 function Player:update(dt)
+  print(self.width)
   Player.super.update(self,dt)  
   if love.keyboard.isDown("down")then  
     
@@ -27,7 +28,7 @@ function Player:update(dt)
     end
   end
   if love.keyboard.isDown("right")then  
-    if positionX < MAX_X then  
+    if positionX < MAX_X - self.width then  
       positionX=positionX + playerSpeed * dt
     end
   end
