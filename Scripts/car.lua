@@ -1,14 +1,15 @@
 local Actor = Actor or require "Scripts/actor"
+local Data = Data or require "data"
 Car = Actor:extend()
 
 function Car:new(x,y) 
   imageRnd = math.random(2)
+  posXRnd = math.random(MIN_X, MAX_X)
   if imageRnd==1 then
-  Car.super.new(self,"Textures/carTop.png",400,700,-100,0,1) 
-else
-  Car.super.new(self,"Textures/carSide.png",400,700,-100,0,1) 
-end
-
+    Car.super.new(self,"Textures/carTop.png",posXRnd,MAX_Y,-100,0,1) 
+  else
+    Car.super.new(self,"Textures/carSide.png",posXRnd,MAX_Y,-100,0,1) 
+  end
 end 
  
 function Car:update(dt) 

@@ -9,6 +9,7 @@ local Car = Car or require "Scripts/car"
 math.randomseed(os.time())
 
 timerSpawn = 0
+timeLeft = 90
 
 function love.load()
 
@@ -18,16 +19,8 @@ function love.load()
   backgroundImage2Y = 1275
   love.audio.setVolume(0.2)
 
-  local b = Box()
-  table.insert(actorList,b)
-
-
   local w = Wave()
   table.insert(actorList,w)
-
-  local c = Car()
-  table.insert(actorList,c)
-
 
   local p = Player()  
   table.insert(actorList,p)
@@ -36,8 +29,14 @@ function love.load()
 end
 
 function love.update(dt)
+  if timeLeft > TIME_SPAWN_UP then
+    spawner = SPAWN_RATE
+  else
+    spawner = SPAWN_RATE_2
+  end
+  
   timerSpawn = timerSpawn + dt
-  if timerSpawn >= SPAWN_RATE then
+  if timerSpawn >= spawner then
     timerSpawn = 0
     obstacleRnd = math.random(3)
     if obstacleRnd == 1 then
@@ -59,10 +58,10 @@ function love.update(dt)
   backgroundImage2Y = backgroundImage2Y - 100 * dt
 
   if backgroundImage1Y <= 0 and backgroundImage1Y > backgroundImage2Y then
-    backgroundImage2Y = 1275
+    backgroundImage2Y = MAX_Y
   end
   if backgroundImage2Y <= 0 and backgroundImage2Y > backgroundImage1Y then
-    backgroundImage1Y = 1275
+    backgroundImage1Y = MAX_Y
   end
 end
 
@@ -78,7 +77,16 @@ function love.draw()
       v:draw()
     end
   end
-
+  for _,v in ipairs(actorList) do
+    if v:is(Hud) then
+      v:draw()
+    end
+  end
+  for _,v in ipairs(actorList) do
+    if v:is(Player) then
+      v:draw()
+    end
+  end
 end
 function love.keypressed(key)
   

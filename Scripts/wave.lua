@@ -1,12 +1,28 @@
 local Actor = Actor or require "Scripts/actor"
 Wave = Actor:extend()
 
+timerWaveMov = 0
+timerWaveMovTotal = 0.5
+
 function Wave:new(x,y)
+  dirY = true
   Wave.super.new(self,"Textures/ola.png",400,30,0,0)
 end
 
-function Wave:uptade(dt)
-  Wave.super.update(self,dt)  
+function Wave:update(dt)
+  timerWaveMov = timerWaveMov + dt
+  if timerWaveMov >= timerWaveMovTotal then
+    timerWaveMov = 0
+    dirY = not dirY
+  end
+  
+  if dirY then
+    self.position.y = self.position.y + 30 * dt
+  else
+    self.position.y = self.position.y - 30 * dt
+  end
+  
+  Wave.super.update(self,dt) 
 end
 
 function Wave:draw()

@@ -3,11 +3,9 @@ local Hud = Actor:extend()
 
 
 function Hud:new()
- 
- 
+ timeLeft = 90
  font = love.graphics.newFont("aAtmospheric.ttf", 18)
  playerScore = 0
- timeLeft = 90
  soundRnd=math.random(4)
  if soundRnd == 1 then
         playSound(love.audio.newSource("SoundEffects/DJ Kantik - Teriyaki boyz - Sean Paul Temperature (Club Mix).mp3","static"))

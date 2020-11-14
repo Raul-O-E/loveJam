@@ -1,8 +1,10 @@
 local Actor = Actor or require "Scripts/actor"
+local Data = Data or require "data"
 Basura = Actor:extend()
 
 function Basura:new(x,y) 
-  Basura.super.new(self,"Textures/basura.png",400,700,-100,0,1) 
+  posXRnd = math.random(MIN_X, MAX_X)
+  Basura.super.new(self,"Textures/basura.png",posXRnd,MAX_Y,-100,0,1) 
 end 
  
 function Basura:update(dt) 
