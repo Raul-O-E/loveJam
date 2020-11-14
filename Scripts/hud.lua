@@ -28,7 +28,7 @@ function Hud:update(dt)
   
 end
 function Hud:draw()
-  love.graphics.setColor(0, 1, 1)
+  love.graphics.setColor(0, 0, 0)
   love.graphics.setFont(font)
   love.graphics.print("SCORE: "..math.floor(playerScore),570,100)
   love.graphics.setFont(font)
