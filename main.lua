@@ -16,11 +16,10 @@ function love.load()
   backgroundImage2 = love.graphics.newImage("Textures/background.png")
   backgroundImage1Y = 0
   backgroundImage2Y = 1275
-<<<<<<< Updated upstream
-=======
+
   local c = Car()
   table.insert(actorList,c)
->>>>>>> Stashed changes
+
   local p = Player()  
   table.insert(actorList,p)
   local h = Hud() 
