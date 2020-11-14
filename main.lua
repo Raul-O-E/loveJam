@@ -3,6 +3,7 @@ local Player = Player or require "Scripts/player"
 local Data = Data or require "data"
 local Box = Box or require "Scripts/box"
 local Wave = Wave or require "Scripts/wave"
+local Hud = Hud or require "Scripts/Hud"
 local Basura = Basura or require "Scripts/basura"
 math.randomseed(os.time())
 
@@ -16,6 +17,8 @@ function love.load()
   backgroundImage2Y = 1275
   local p = Player()  
   table.insert(actorList,p)
+  local h = Hud() 
+  table.insert(actorList,h)
 end
 
 function love.update(dt)
