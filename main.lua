@@ -16,7 +16,7 @@ function love.load()
   backgroundImage2 = love.graphics.newImage("Textures/background.png")
   backgroundImage1Y = 0
   backgroundImage2Y = 1275
-
+  love.audio.setVolume(0.2)
 
   local b = Box()
   table.insert(actorList,b)
@@ -48,7 +48,7 @@ function love.update(dt)
     elseif obstacleRnd == 2 then
       x = Basura:extend()
     elseif obstacleRnd == 3 then
-      x = Basura:extend()
+      x = Car:extend()
     end
     x:new()
     table.insert(actorList,x)
