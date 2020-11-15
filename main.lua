@@ -24,8 +24,6 @@ function love.load()
   backgroundImage2Y = 1275
   
 
-  crash=love.audio.newSource("SoundEffects/carCrash.wav","static")
-
   local w = Wave()
   table.insert(actorList,w)
 
@@ -36,8 +34,7 @@ function love.load()
   local gom = GameOverMenu() 
   table.insert(actorList,gom)  
   local yw = YouWonMenu()
-  table.insert(actorList,yw)
- 
+ table.insert(actorList,yw)
 end
 
 function love.update(dt)
