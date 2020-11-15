@@ -2,7 +2,7 @@ local Actor = Actor or require "Scripts/actor"
 local Data = Data or require "data"
 Car = Actor:extend()
 
-function Car:new(x,y) 
+function Car:new() 
   imageRnd = math.random(2)
   posXRnd = math.random(MIN_X, MAX_X)
   if imageRnd==1 then

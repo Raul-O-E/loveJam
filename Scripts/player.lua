@@ -14,21 +14,19 @@ end
 function Player:update(dt)
   Player.super.update(self,dt)  
   if love.keyboard.isDown("down")then  
-    
-      positionY=positionY + playerSpeed * dt
+      self.position.y = self.position.y + playerSpeed * dt
   end
   if love.keyboard.isDown("up")then  
-    
-      positionY=positionY - playerSpeed * dt
+      self.position.y = self.position.y - playerSpeed * dt
   end
   if love.keyboard.isDown("left")then  
-    if positionX > MIN_X then  
-      positionX=positionX - playerSpeed * dt
+    if self.position.x > MIN_X then  
+      self.position.x = self.position.x - playerSpeed * dt
     end
   end
   if love.keyboard.isDown("right")then  
-    if positionX < MAX_X - self.width then  
-      positionX=positionX + playerSpeed * dt
+    if self.position.x < MAX_X - self.width then  
+      self.position.x = self.position.x + playerSpeed * dt
     end
   end
 end
@@ -41,7 +39,11 @@ function Player:draw()
   sx = self.scale.x
   sy = self.scale.y
   rr = self.rot  
-  love.graphics.draw(self.image,positionX,positionY,rr-motoAnguloCorrecto,sx*motoScale,sy*motoScale,ox,oy) 
+  love.graphics.draw(self.image,xx,yy,rr-motoAnguloCorrecto,sx*motoScale,sy*motoScale,ox,oy) 
+end
+
+function Player:hit() 
+  gameover = true
 end
 
 return Player

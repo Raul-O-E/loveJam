@@ -1,4 +1,5 @@
 local Actor = Actor or require "Scripts/actor"
+local Data = Data or require "data"
 Wave = Actor:extend()
 
 timerWaveMov = 0
@@ -17,9 +18,9 @@ function Wave:update(dt)
   end
   
   if dirY then
-    self.position.y = self.position.y + 30 * dt
+    self.position.y = self.position.y + WAVE_SPD * dt
   else
-    self.position.y = self.position.y - 30 * dt
+    self.position.y = self.position.y - WAVE_SPD * dt
   end
   
   Wave.super.update(self,dt) 

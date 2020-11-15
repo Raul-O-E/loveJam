@@ -5,11 +5,13 @@ local Box = Box or require "Scripts/box"
 local Wave = Wave or require "Scripts/wave"
 local Hud = Hud or require "Scripts/Hud"
 local Basura = Basura or require "Scripts/basura"
+local GameOverMenu = GameOverMenu or require "Scripts/gameOverMenu"
 local Car = Car or require "Scripts/car"
 math.randomseed(os.time())
 
 timerSpawn = 0
 timeLeft = 90
+gameover = false
 
 function love.load()
 
@@ -26,6 +28,8 @@ function love.load()
   table.insert(actorList,p)
   local h = Hud() 
   table.insert(actorList,h)
+  local gom = GameOverMenu() 
+  table.insert(actorList,gom)
 end
 
 function love.update(dt)
@@ -50,10 +54,23 @@ function love.update(dt)
     table.insert(actorList,x)
   end
   
-
   for _,v in ipairs(actorList) do
     v:update(dt)
   end
+  
+  for _,player in ipairs(actorList) do
+    if player:is(Player) then
+      for _,obstacle in ipairs(actorList) do
+        if obstacle:is(Basura) or obstacle:is(Car) or obstacle:is(Box) then
+          if player.intersect(obstacle, player) then
+            player:hit()
+          end
+        end
+      end
+    end
+  end
+  
+  
   backgroundImage1Y = backgroundImage1Y - 100 * dt
   backgroundImage2Y = backgroundImage2Y - 100 * dt
 
@@ -66,32 +83,39 @@ function love.update(dt)
 end
 
 function love.draw()
-
-  love.graphics.draw(backgroundImage,0,backgroundImage1Y)
-  love.graphics.draw(backgroundImage2,0, backgroundImage2Y)
-  for _,v in ipairs(actorList) do
-    v:draw()
-  end
-  for _,v in ipairs(actorList) do
-    if v:is(Wave) then
-      v:draw()
+  if not gameover then
+    love.graphics.draw(backgroundImage,0,backgroundImage1Y)
+    love.graphics.draw(backgroundImage2,0, backgroundImage2Y)
+    for _,v in ipairs(actorList) do
+      if not v:is(GameOverMenu) then
+        v:draw()
+      end
+    end
+    for _,v in ipairs(actorList) do
+      if v:is(Wave) then
+        v:draw()
+      end
+    end
+    for _,v in ipairs(actorList) do
+      if v:is(Hud) then
+        v:draw()
+      end
+    end
+    for _,v in ipairs(actorList) do
+      if v:is(Player) then
+        v:draw()
+      end
+    end
+  else
+    love.graphics.draw(backgroundImage,0,0)
+    for _,v in ipairs(actorList) do
+      if v:is(GameOverMenu) then
+        v:draw()
+      end
     end
   end
-  for _,v in ipairs(actorList) do
-    if v:is(Hud) then
-      v:draw()
-    end
-  end
-  for _,v in ipairs(actorList) do
-    if v:is(Player) then
-      v:draw()
-    end
-  end
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 end
+
 function love.keypressed(key)
   
   

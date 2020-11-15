@@ -2,7 +2,7 @@ local Actor = Actor or require "Scripts/actor"
 local Data = Data or require "data"
 Box = Actor:extend()
 
-function Box:new(x,y) 
+function Box:new() 
   posXRnd = math.random(MIN_X, MAX_X)
   Box.super.new(self,"Textures/box.png",posXRnd,MAX_Y,-100,0,1) 
 end 

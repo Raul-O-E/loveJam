@@ -28,9 +28,9 @@ end
 function Hud:draw()
   love.graphics.setColor(0, 0, 0)
   love.graphics.setFont(font)
-  love.graphics.print("SCORE: "..math.floor(playerScore),570,70)
+  love.graphics.print("SCORE: "..math.floor(playerScore),570,50)
   love.graphics.setFont(font)
-  love.graphics.print("TIME LEFT: "..math.floor(timeLeft),5,70)
+  love.graphics.print("TIME LEFT: "..math.floor(timeLeft),5,50)
   love.graphics.reset()
 end
 function Hud:timeLeft(dt)
