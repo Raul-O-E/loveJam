@@ -12,6 +12,5 @@ WAVE_SPD = 30
 <<<<<<< Updated upstream
 
 timeLeft=5
-=======
 ACTUAL_MENU= "start"
->>>>>>> Stashed changes
+gameover=false

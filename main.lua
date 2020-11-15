@@ -11,7 +11,7 @@ local Car = Car or require "Scripts/car"
 math.randomseed(os.time())
 
 timerSpawn = 0
-gameover = false
+
 
 
 function love.load()
@@ -137,7 +137,14 @@ function love.draw()
   end
 end
 
-function love.keypressed(key)
-  
-  
+function love.keypressed(key)  
+  if key==("space") then
+    YouWonMenu:keyIsDown("space")
+ 
+     love.load()
+  elseif key==("escape") then
+    YouWonMenu:keyIsDown("escape")
+   
+    love.load()
+  end
 end
