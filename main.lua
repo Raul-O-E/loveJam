@@ -26,13 +26,11 @@ function loadGame()
   timeLeft = INITIAL_TIME_LEFT
   love.audio.stop()
 
-  soundRnd=math.random(3)
+  soundRnd=math.random(2)
   if soundRnd == 1 then
     DejaVu:play()
   elseif soundRnd == 2 then     
     GasGasGas:play()       
-  elseif soundRnd == 3 then
-    RunningInThe90:play() 
   end
 
   backgroundImage = love.graphics.newImage("Textures/background.png")

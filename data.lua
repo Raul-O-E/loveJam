@@ -17,8 +17,6 @@ ACTUAL_MENU= "start"
 
 playerCrash=love.audio.newSource("SoundEffects/carCrash.wav","stream")
 GasGasGas=love.audio.newSource("SoundEffects/Manuel - Gas Gas Gas.mp3","static")
-RunningInThe90=love.audio.newSource("SoundEffects/Running in the 90's.mp3","static")
 DejaVu=love.audio.newSource("SoundEffects/Initial D - Deja Vu.mp3","static")
 GasGasGas:setVolume(0.2)
-RunningInThe90:setVolume(0.2)
 DejaVu:setVolume(0.2)
