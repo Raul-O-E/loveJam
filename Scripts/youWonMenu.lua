@@ -13,7 +13,7 @@ end
 function youWonMenu:draw()
   love.graphics.setColor(0, 0, 0)
   love.graphics.setFont(fontYouWon)
-  love.graphics.print("YOU WON",SCREEN_WIDTH/4,SCREEN_HEIGHT/3)
+  love.graphics.print("YOU WON",SCREEN_WIDTH/4+20,SCREEN_HEIGHT/3)
   love.graphics.setColor(1, 0, 0)
   if math.floor(love.timer.getTime()) % 2 == 0 then
   love.graphics.print("Space to play", SCREEN_WIDTH/7, SCREEN_HEIGHT/2)
