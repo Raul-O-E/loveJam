@@ -9,5 +9,9 @@ MIN_X = 200
 MAX_X = 600
 
 WAVE_SPD = 30
+<<<<<<< Updated upstream
 
 timeLeft=5
+=======
+ACTUAL_MENU= "start"
+>>>>>>> Stashed changes

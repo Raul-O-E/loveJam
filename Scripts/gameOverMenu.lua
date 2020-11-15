@@ -9,7 +9,6 @@ end
 
 function gameOverMenu:update(dt)
 end
-
 function gameOverMenu:draw()
   love.graphics.setColor(0, 0, 0)
   love.graphics.setFont(fontGameOver)
@@ -17,7 +16,7 @@ function gameOverMenu:draw()
   love.graphics.setColor(1, 0, 0)
   if math.floor(love.timer.getTime()) % 2 == 0 then
     love.graphics.print("Space to play", SCREEN_WIDTH/7+10, SCREEN_HEIGHT/2)
-    love.graphics.print("ESQ to quit", SCREEN_WIDTH/4-20, SCREEN_HEIGHT/1.5)
+    love.graphics.print("ESC to quit", SCREEN_WIDTH/4-20, SCREEN_HEIGHT/1.5)
   end
   love.graphics.reset()
 end

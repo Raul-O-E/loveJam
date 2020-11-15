@@ -8,6 +8,8 @@ local Basura = Basura or require "Scripts/basura"
 local GameOverMenu = GameOverMenu or require "Scripts/gameOverMenu"
 local YouWonMenu = YouWonMenu or require "Scripts/youWonMenu"
 local Car = Car or require "Scripts/car"
+local startMenu= startMenu or require "Scripts/startMenu"
+require "data"
 math.randomseed(os.time())
 
 timerSpawn = 0
@@ -31,6 +33,7 @@ function love.load()
   table.insert(actorList,p)
   local h = Hud() 
   table.insert(actorList,h)
+<<<<<<< Updated upstream
   local gom = GameOverMenu() 
   table.insert(actorList,gom)  
   local yw = YouWonMenu()
@@ -39,6 +42,20 @@ end
 
 function love.update(dt)
   if gameover==false then
+=======
+  gom = GameOverMenu() 
+  table.insert(actorList,gom)
+  sm= startMenu()
+  table.insert(actorList,sm)
+end
+
+function love.update(dt)
+  if ACTUAL_MENU=="start" then
+    
+    sm:update(dt)
+    end
+  if ACTUAL_MENU=="none" then
+>>>>>>> Stashed changes
   if timeLeft > TIME_SPAWN_UP then
     spawner = SPAWN_RATE
   else
@@ -89,8 +106,10 @@ function love.update(dt)
   end
   end
 end
+end
 
 function love.draw()
+<<<<<<< Updated upstream
    
    
     if not gameover and timeLeft>0 then
@@ -98,6 +117,17 @@ function love.draw()
        love.graphics.draw(backgroundImage2,0, backgroundImage2Y)
       for _,v in ipairs(actorList) do
       if not v:is(GameOverMenu) and not v:is(YouWonMenu) then
+=======
+  if ACTUAL_MENU=="start" then
+    love.graphics.clear()
+    sm:draw()
+    end
+  if ACTUAL_MENU=="none" then
+    love.graphics.draw(backgroundImage,0,backgroundImage1Y)
+    love.graphics.draw(backgroundImage2,0, backgroundImage2Y)
+    for _,v in ipairs(actorList) do
+      if not v:is(GameOverMenu) then
+>>>>>>> Stashed changes
         v:draw()
       end
       
@@ -126,7 +156,7 @@ function love.draw()
         print("YOU WON")
       end
     end
-  else
+  if ACTUAL_MENU=="gameover" then
     love.graphics.draw(backgroundImage,0,0)
     for _,v in ipairs(actorList) do
       if v:is(GameOverMenu) then
@@ -135,9 +165,13 @@ function love.draw()
     end    
   
   end
+<<<<<<< Updated upstream
+=======
+  end
+
+>>>>>>> Stashed changes
 end
 
 function love.keypressed(key)
-  
-  
+ 
 end
