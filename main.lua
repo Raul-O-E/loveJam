@@ -15,11 +15,13 @@ gameover = false
 
 function love.load()
 
+  playerCrash=love.audio.newSource("SoundEffects/carCrash.wav","stream")
+
   backgroundImage = love.graphics.newImage("Textures/background.png")
   backgroundImage2 = love.graphics.newImage("Textures/background.png")
   backgroundImage1Y = 0
   backgroundImage2Y = 1275
-  love.audio.setVolume(0.2)
+  
 
   local w = Wave()
   table.insert(actorList,w)
@@ -33,6 +35,7 @@ function love.load()
 end
 
 function love.update(dt)
+  if gameover==false then
   if timeLeft > TIME_SPAWN_UP then
     spawner = SPAWN_RATE
   else
@@ -64,6 +67,7 @@ function love.update(dt)
         if obstacle:is(Basura) or obstacle:is(Car) or obstacle:is(Box) or obstacle:is(Wave) then
           if player.intersect(obstacle, player) then
             player:hit()
+            playerCrash:play()
           end
         end
       end
@@ -79,6 +83,7 @@ function love.update(dt)
   end
   if backgroundImage2Y <= 0 and backgroundImage2Y > backgroundImage1Y then
     backgroundImage1Y = MAX_Y
+  end
   end
 end
 

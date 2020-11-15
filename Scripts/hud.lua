@@ -6,16 +6,22 @@ function Hud:new()
  timeLeft = 90
  font = love.graphics.newFont("aAtmospheric.ttf", 18)
  playerScore = 0
- soundRnd=math.random(4)
+ 
+
+ GasGasGas=love.audio.newSource("SoundEffects/Manuel - Gas Gas Gas.mp3","static")
+ RunningInThe90=love.audio.newSource("SoundEffects/Running in the 90's.mp3","static")
+ DejaVu=love.audio.newSource("SoundEffects/Initial D - Deja Vu.mp3","static")
+ GasGasGas:setVolume(0.2)
+ RunningInThe90:setVolume(0.2)
+ DejaVu:setVolume(0.2)
+ soundRnd=math.random(3)
  if soundRnd == 1 then
-        playSound(love.audio.newSource("SoundEffects/DJ Kantik - Teriyaki boyz - Sean Paul Temperature (Club Mix).mp3","static"))
+        playSound(DejaVu)
       elseif soundRnd == 2 then     
-        playSound(love.audio.newSource("SoundEffects/Manuel - Gas Gas Gas.mp3","static"))       
+        playSound(GasGasGas)       
        elseif soundRnd == 3 then
-          playSound(love.audio.newSource("SoundEffects/Running in the 90's.mp3","static"))    
-         elseif soundRnd == 4 then
-          playSound(love.audio.newSource("SoundEffects/Initial D - Deja Vu.mp3","static"))    
-         end
+          playSound(RunningInThe90)    
+        end
  
 end
 function Hud:update(dt)
