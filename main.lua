@@ -21,6 +21,8 @@ function love.load()
   backgroundImage2Y = 1275
   love.audio.setVolume(0.2)
 
+  crash=love.audio.newSource("SoundEffects/motoCrash.wav","static")
+
   local w = Wave()
   table.insert(actorList,w)
 
@@ -64,6 +66,8 @@ function love.update(dt)
         if obstacle:is(Basura) or obstacle:is(Car) or obstacle:is(Box) then
           if player.intersect(obstacle, player) then
             player:hit()
+            crash:play()            
+            
           end
         end
       end
@@ -115,7 +119,6 @@ function love.draw()
     end
   end
 end
-
 function love.keypressed(key)
   
   
