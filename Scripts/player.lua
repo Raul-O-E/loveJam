@@ -43,7 +43,7 @@ function Player:draw()
 end
 
 function Player:hit() 
-  gameover = true
+  gameover = 2
 end
 
 return Player

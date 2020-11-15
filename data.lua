@@ -11,9 +11,8 @@ MAX_X = 600
 WAVE_SPD = 30
 OBJECTS_SPD=100
 
-timeLeft=5
+INITIAL_TIME_LEFT=5
 ACTUAL_MENU= "start"
-gameover=false
 
 
 playerCrash=love.audio.newSource("SoundEffects/carCrash.wav","stream")

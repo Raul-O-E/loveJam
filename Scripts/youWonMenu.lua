@@ -27,7 +27,7 @@ end
 
 function youWonMenu:keyIsDown(key)
   if (key == "space") then
-    gameOver = false
+    love.load()
   elseif (key == "escape") then
     os.exit()
   end

@@ -29,7 +29,7 @@ end
 
 function gameOverMenu:keyIsDown(key)
   if (key == "space") then
-    
+    love.load()
   elseif (key == "esc") then
     os.exit()
   end
