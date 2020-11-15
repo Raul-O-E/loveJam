@@ -36,6 +36,7 @@ function love.load()
   local gom = GameOverMenu() 
   table.insert(actorList,gom)  
   local yw = YouWonMenu()
+  table.insert(actorList,yw)
  
 end
 
@@ -95,13 +96,14 @@ end
 function love.draw()
    
    
-    if not gameover then   
+    if not gameover and timeLeft>0 then
        love.graphics.draw(backgroundImage,0,backgroundImage1Y)
        love.graphics.draw(backgroundImage2,0, backgroundImage2Y)
       for _,v in ipairs(actorList) do
-      if not v:is(GameOverMenu) then
+      if not v:is(GameOverMenu) and not v:is(YouWonMenu) then
         v:draw()
       end
+      
       end
       for _,v in ipairs(actorList) do
       if v:is(Wave) then
@@ -117,18 +119,17 @@ function love.draw()
       if v:is(Player) then
         v:draw()
       end
-    end
-     
-       if timeLeft<=0 then
-         love.graphics.draw(backgroundImage,0,0)
+    end   
+    
+  elseif timeLeft<=0 then 
+       love.graphics.draw(backgroundImage,0,0)
        for _,v in ipairs(actorList) do
        if v:is(YouWonMenu) then
         v:draw()
         print("YOU WON")
       end
     end
-    end
-    else
+  else
     love.graphics.draw(backgroundImage,0,0)
     for _,v in ipairs(actorList) do
       if v:is(GameOverMenu) then
