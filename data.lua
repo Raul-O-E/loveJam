@@ -9,8 +9,17 @@ MIN_X = 200
 MAX_X = 600
 
 WAVE_SPD = 30
-<<<<<<< Updated upstream
+OBJECTS_SPD=100
 
 timeLeft=5
 ACTUAL_MENU= "start"
 gameover=false
+
+
+playerCrash=love.audio.newSource("SoundEffects/carCrash.wav","stream")
+GasGasGas=love.audio.newSource("SoundEffects/Manuel - Gas Gas Gas.mp3","static")
+ RunningInThe90=love.audio.newSource("SoundEffects/Running in the 90's.mp3","static")
+ DejaVu=love.audio.newSource("SoundEffects/Initial D - Deja Vu.mp3","static")
+ GasGasGas:setVolume(0.2)
+ RunningInThe90:setVolume(0.2)
+ DejaVu:setVolume(0.2)

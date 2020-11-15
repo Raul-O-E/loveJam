@@ -1,6 +1,6 @@
 local Actor = Actor or require "Scripts/actor"
 local Hud = Actor:extend()
-
+local Data = Data or require "Scripts/actor"
 
 function Hud:new()
 
@@ -8,20 +8,15 @@ function Hud:new()
  playerScore = 0
  
 
- GasGasGas=love.audio.newSource("SoundEffects/Manuel - Gas Gas Gas.mp3","static")
- RunningInThe90=love.audio.newSource("SoundEffects/Running in the 90's.mp3","static")
- DejaVu=love.audio.newSource("SoundEffects/Initial D - Deja Vu.mp3","static")
- GasGasGas:setVolume(0.2)
- RunningInThe90:setVolume(0.2)
- DejaVu:setVolume(0.2)
+ 
  soundRnd=math.random(3)
  if soundRnd == 1 then
-        playSound(DejaVu)
-      elseif soundRnd == 2 then     
-        playSound(GasGasGas)       
-       elseif soundRnd == 3 then
-          playSound(RunningInThe90)    
-        end
+    playSound(DejaVu)
+  elseif soundRnd == 2 then     
+    playSound(GasGasGas)       
+  elseif soundRnd == 3 then
+    playSound(RunningInThe90)    
+  end
  
 end
 function Hud:update(dt)

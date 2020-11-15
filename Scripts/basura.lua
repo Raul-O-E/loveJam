@@ -8,7 +8,7 @@ function Basura:new()
 end 
  
 function Basura:update(dt) 
-  self.position.y=self.position.y-100*dt
+  self.position.y=self.position.y-OBJECTS_SPD*dt
   Box.super.update(self,dt) 
 end 
  

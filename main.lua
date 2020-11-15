@@ -16,7 +16,7 @@ timerSpawn = 0
 
 function love.load()
 
-  playerCrash=love.audio.newSource("SoundEffects/carCrash.wav","stream")
+  
 
   backgroundImage = love.graphics.newImage("Textures/background.png")
   backgroundImage2 = love.graphics.newImage("Textures/background.png")

@@ -13,7 +13,7 @@ function Car:new()
 end 
  
 function Car:update(dt) 
-  self.position.y=self.position.y-100*dt
+  self.position.y=self.position.y-OBJECTS_SPD*dt
   Car.super.update(self,dt) 
 end 
  
