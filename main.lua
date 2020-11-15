@@ -63,7 +63,7 @@ function love.update(dt)
   for _,player in ipairs(actorList) do
     if player:is(Player) then
       for _,obstacle in ipairs(actorList) do
-        if obstacle:is(Basura) or obstacle:is(Car) or obstacle:is(Box) then
+        if obstacle:is(Basura) or obstacle:is(Car) or obstacle:is(Box) or obstacle:is(Wave) then
           if player.intersect(obstacle, player) then
             player:hit()
             crash:play()            
@@ -118,6 +118,7 @@ function love.draw()
       end
     end
   end
+
 end
 function love.keypressed(key)
   
