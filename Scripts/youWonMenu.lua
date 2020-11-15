@@ -11,7 +11,7 @@ function youWonMenu:update(dt)
 end
 
 function youWonMenu:draw()
-  love.graphics.setColor(0, 0, 0)
+  love.graphics.setColor(0, 1, 0)
   love.graphics.setFont(fontYouWon)
   love.graphics.print("YOU WON",SCREEN_WIDTH/2,SCREEN_HEIGHT/2)
   love.graphics.reset()

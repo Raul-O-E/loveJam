@@ -12,7 +12,7 @@ math.randomseed(os.time())
 
 timerSpawn = 0
 gameover = false
-youWon = false
+
 
 function love.load()
 
@@ -24,7 +24,7 @@ function love.load()
   backgroundImage2Y = 1275
   
 
-  crash=love.audio.newSource("SoundEffects/motoCrash.wav","static")
+  crash=love.audio.newSource("SoundEffects/carCrash.wav","static")
 
   local w = Wave()
   table.insert(actorList,w)
@@ -36,7 +36,7 @@ function love.load()
   local gom = GameOverMenu() 
   table.insert(actorList,gom)  
   local yw = YouWonMenu()
-  table.insert(actorList,yw)
+ 
 end
 
 function love.update(dt)
