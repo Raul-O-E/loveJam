@@ -6,12 +6,13 @@ local Wave = Wave or require "Scripts/wave"
 local Hud = Hud or require "Scripts/Hud"
 local Basura = Basura or require "Scripts/basura"
 local GameOverMenu = GameOverMenu or require "Scripts/gameOverMenu"
+local YouWonMenu = YouWonMenu or require "Scripts/youWonMenu"
 local Car = Car or require "Scripts/car"
 math.randomseed(os.time())
 
 timerSpawn = 0
-timeLeft = 90
 gameover = false
+youWon = false
 
 function love.load()
 
@@ -23,6 +24,8 @@ function love.load()
   backgroundImage2Y = 1275
   
 
+  crash=love.audio.newSource("SoundEffects/motoCrash.wav","static")
+
   local w = Wave()
   table.insert(actorList,w)
 
@@ -31,7 +34,9 @@ function love.load()
   local h = Hud() 
   table.insert(actorList,h)
   local gom = GameOverMenu() 
-  table.insert(actorList,gom)
+  table.insert(actorList,gom)  
+  local yw = YouWonMenu()
+  table.insert(actorList,yw)
 end
 
 function love.update(dt)
@@ -73,7 +78,7 @@ function love.update(dt)
       end
     end
   end
-  
+    
   
   backgroundImage1Y = backgroundImage1Y - 100 * dt
   backgroundImage2Y = backgroundImage2Y - 100 * dt
@@ -88,39 +93,52 @@ function love.update(dt)
 end
 
 function love.draw()
-  if not gameover then
-    love.graphics.draw(backgroundImage,0,backgroundImage1Y)
-    love.graphics.draw(backgroundImage2,0, backgroundImage2Y)
-    for _,v in ipairs(actorList) do
+   
+   
+    if not gameover then   
+       love.graphics.draw(backgroundImage,0,backgroundImage1Y)
+       love.graphics.draw(backgroundImage2,0, backgroundImage2Y)
+      for _,v in ipairs(actorList) do
       if not v:is(GameOverMenu) then
         v:draw()
       end
-    end
-    for _,v in ipairs(actorList) do
+      end
+      for _,v in ipairs(actorList) do
       if v:is(Wave) then
         v:draw()
       end
-    end
-    for _,v in ipairs(actorList) do
+      end
+      for _,v in ipairs(actorList) do
       if v:is(Hud) then
         v:draw()
       end
-    end
-    for _,v in ipairs(actorList) do
+      end
+      for _,v in ipairs(actorList) do
       if v:is(Player) then
         v:draw()
       end
     end
-  else
+     
+       if timeLeft<=0 then
+         love.graphics.draw(backgroundImage,0,0)
+       for _,v in ipairs(actorList) do
+       if v:is(YouWonMenu) then
+        v:draw()
+        print("YOU WON")
+      end
+    end
+    end
+    else
     love.graphics.draw(backgroundImage,0,0)
     for _,v in ipairs(actorList) do
       if v:is(GameOverMenu) then
         v:draw()
       end
-    end
+    end    
+  
   end
-
 end
+
 function love.keypressed(key)
   
   

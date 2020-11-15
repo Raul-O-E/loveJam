@@ -9,3 +9,5 @@ MIN_X = 200
 MAX_X = 600
 
 WAVE_SPD = 30
+
+timeLeft=5
