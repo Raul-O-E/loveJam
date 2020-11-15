@@ -3,7 +3,7 @@ local Hud = Actor:extend()
 
 
 function Hud:new()
- timeLeft = 90
+
  font = love.graphics.newFont("aAtmospheric.ttf", 18)
  playerScore = 0
  soundRnd=math.random(4)
