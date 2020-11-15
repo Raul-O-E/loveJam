@@ -14,10 +14,10 @@ end
 function Player:update(dt)
   Player.super.update(self,dt)  
   if love.keyboard.isDown("down")then  
-      self.position.y = self.position.y + playerSpeed * dt
+    self.position.y = self.position.y + playerSpeed * dt
   end
   if love.keyboard.isDown("up")then  
-      self.position.y = self.position.y - playerSpeed * dt
+    self.position.y = self.position.y - playerSpeed * dt
   end
   if love.keyboard.isDown("left")then  
     if self.position.x > MIN_X then  

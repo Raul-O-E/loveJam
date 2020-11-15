@@ -6,7 +6,7 @@ function Box:new()
   posXRnd = math.random(MIN_X, MAX_X)
   Box.super.new(self,"Textures/box.png",posXRnd,MAX_Y,-100,0,1) 
 end 
- 
+
 function Box:update(dt) 
   self.position.y=self.position.y-OBJECTS_SPD*dt
   Box.super.update(self,dt) 

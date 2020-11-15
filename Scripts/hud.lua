@@ -9,11 +9,11 @@ function Hud:new()
  
 end
 function Hud:update(dt)
-  
+
   Hud.super.update(self,dt)
   Hud:addScore(dt)
   Hud:timeLeft(dt)  
-  
+
 end
 function Hud:draw()
   love.graphics.setColor(0, 0, 0)
@@ -25,7 +25,7 @@ function Hud:draw()
 end
 function Hud:timeLeft(dt)
   timeLeft = timeLeft - dt
-  end
+end
 function Hud:addScore(dt)
   playerScore = playerScore + dt * 10
 end

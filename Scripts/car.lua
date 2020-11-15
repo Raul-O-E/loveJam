@@ -11,12 +11,12 @@ function Car:new()
     Car.super.new(self,"Textures/carSide.png",posXRnd,MAX_Y,-100,0,1) 
   end
 end 
- 
+
 function Car:update(dt) 
   self.position.y=self.position.y-OBJECTS_SPD*dt
   Car.super.update(self,dt) 
 end 
- 
+
 function Car:draw() 
   xx = self.position.x 
   ox = self.origin.x 
@@ -27,7 +27,7 @@ function Car:draw()
   rr = self.rot 
   love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0) 
 end 
- 
- 
- 
+
+
+
 return Car

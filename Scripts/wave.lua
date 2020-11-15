@@ -16,13 +16,13 @@ function Wave:update(dt)
     timerWaveMov = 0
     dirY = not dirY
   end
-  
+
   if dirY then
     self.position.y = self.position.y + WAVE_SPD * dt
   else
     self.position.y = self.position.y - WAVE_SPD * dt
   end
-  
+
   Wave.super.update(self,dt) 
 end
 
@@ -35,5 +35,5 @@ function Wave:draw()
   sy = self.scale.y
   rr = self.rot
   love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0)
-  end
+end
 return Wave

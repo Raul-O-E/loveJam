@@ -11,11 +11,14 @@ function youWonMenu:update(dt)
 end
 
 function youWonMenu:draw()
-  love.graphics.setColor(0, 1, 0)
+  love.graphics.setColor(0, 0, 0)
   love.graphics.setFont(fontYouWon)
   love.graphics.print("YOU WON",SCREEN_WIDTH/4,SCREEN_HEIGHT/3)
+  love.graphics.setColor(1, 0, 0)
+  if math.floor(love.timer.getTime()) % 2 == 0 then
   love.graphics.print("Space to play", SCREEN_WIDTH/7, SCREEN_HEIGHT/2)
-  love.graphics.print("Press ESC to exit",SCREEN_WIDTH/7-20,SCREEN_HEIGHT/1.5)
+  love.graphics.print("ESC to quit", SCREEN_WIDTH/4-20, SCREEN_HEIGHT/1.5)
+  end
   love.graphics.reset()
 end
 

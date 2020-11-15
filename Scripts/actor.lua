@@ -3,19 +3,19 @@ local Object = Object or require "Scripts/object"
 local Actor = Object:extend()
 
 function Actor:new(image,x,y,speed,fx,fy)
-    self.position = Vector.new(x or 0, y or 0)
-    self.scale = Vector.new(1,1)
-    self.forward = Vector.new(fx or 1,fy or 0)
-    self.speed = speed or 30
-    self.rot = 0
-    self.image = love.graphics.newImage(image or "Textures/moto.png")
-    self.origin = Vector.new(self.image:getWidth()/2 ,self.image:getHeight()/2)
-    self.height = self.image:getHeight()
-    self.width  = self.image:getWidth()
+  self.position = Vector.new(x or 0, y or 0)
+  self.scale = Vector.new(1,1)
+  self.forward = Vector.new(fx or 1,fy or 0)
+  self.speed = speed or 30
+  self.rot = 0
+  self.image = love.graphics.newImage(image or "Textures/moto.png")
+  self.origin = Vector.new(self.image:getWidth()/2 ,self.image:getHeight()/2)
+  self.height = self.image:getHeight()
+  self.width  = self.image:getWidth()
 end
 
 function Actor:update(dt)
- 
+
 end
 
 function Actor:draw()

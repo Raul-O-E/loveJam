@@ -6,12 +6,12 @@ function Basura:new()
   posXRnd = math.random(MIN_X, MAX_X)
   Basura.super.new(self,"Textures/basura.png",posXRnd,MAX_Y,-100,0,1) 
 end 
- 
+
 function Basura:update(dt) 
   self.position.y=self.position.y-OBJECTS_SPD*dt
   Box.super.update(self,dt) 
 end 
- 
+
 function Basura:draw() 
   xx = self.position.x 
   ox = self.origin.x 
@@ -22,7 +22,7 @@ function Basura:draw()
   rr = self.rot 
   love.graphics.draw(self.image,xx,yy,rr,sx,sy,ox,oy,0,0) 
 end 
- 
- 
- 
+
+
+
 return Basura

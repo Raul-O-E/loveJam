@@ -159,7 +159,6 @@ function love.draw()
     for _,v in ipairs(actorList) do
       if v:is(YouWonMenu) then
         v:draw()
-        print("YOU WON")
       end
     end
   end
